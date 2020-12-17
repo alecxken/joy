@@ -172,6 +172,18 @@ public function create_subscribers()
 		return view('activeuser',compact('data'));
 	}
 
+	public function get_subscriber()
+	{
+		$data = WasteSubscriber::all()->where('user_id',\Auth::user()->id);
+		
+		if (!empty($data)) {
+			return back()->with('danger','No Active Subscriptions');
+		}
+
+	
+		return view('activeuserfront',compact('data'));
+	}
+
 
 	#Create a compnay
 	public function createschedule()

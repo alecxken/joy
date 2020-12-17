@@ -19,6 +19,8 @@ use App\Http\Controllers\SettingsController;
 */
 
 
+Route::get('/getmysub',[App\Http\Controllers\CompanyController::class,'get_subscriber']);
+
 
 Route::get('/getservice/getsubscriber/{id}',[App\Http\Controllers\CompanyController::class,'getsubscriber']);
 

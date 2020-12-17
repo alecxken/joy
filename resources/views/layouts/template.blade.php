@@ -43,6 +43,12 @@
             </a>
           </li>
 
+           <li class="nav-item  px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{{url('getmysub')}}">Active Subscribers
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+
              <li class="nav-item  px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{{url('searchwaste')}}">Subscribe
               <span class="sr-only">(current)</span>
@@ -67,7 +73,7 @@
           </li>
                         @else
                             <li class="nav-item px-lg-4 dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link text-uppercase text-expanded dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
@@ -100,6 +106,45 @@
         <section class="page-section cta" style=" background-image: linear-gradient(to right,#FFF,#1CA340);">
     <div class="row">
           <div class="col-md-12 mx-auto">
+                  @if (session('status'))
+        <div id="erros" class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4>Alert!</h4>
+
+        <p> {{ session('status') }}</p>
+      </div>
+@elseif(session('error'))
+<div id="erros" class="alert alert-warning alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4>Warning!</h4>
+
+        <p> {{ session('error') }}</p>
+      </div>
+@elseif(session('danger'))
+<div id="erros" class="alert alert-danger alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <h4>Warning!</h4>
+
+              <p> {{ session('danger') }}</p>
+            </div>
+@elseif(session('primary'))
+<div id="erros" class="alert alert-primary alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <h4>Warning!</h4>
+
+              <p> {{ session('primary') }}</p>
+            </div>
+
+@endif
+@if ($errors->any())
+    <div id="erros" class="alert alert-danger alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <h4>Input Fields Error!!</h4>
+             @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+            </div>
+@endif
             <div class="cta-inner text-center rounded">
              @yield('content')
            </div>

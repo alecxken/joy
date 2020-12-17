@@ -45,6 +45,14 @@
             </a>
           </li>
 
+          
+           <li class="nav-item  px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{{url('getmysub')}}">Active Subscribers
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+
+
            <li class="nav-item  px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{{url('searchwaste')}}">Subscribe
               <span class="sr-only">(current)</span>
