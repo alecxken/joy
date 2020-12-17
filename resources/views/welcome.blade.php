@@ -40,26 +40,73 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item active px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{{url('')}}">Home
+            <a class="nav-link text-uppercase text-expanded" href="{{url('\home')}}">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="about.html">About</a>
+
+           <li class="nav-item  px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{{url('searchwaste')}}">Subscribe
+              <span class="sr-only">(current)</span>
+            </a>
           </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="products.html">Products</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="store.html">Store</a>
-          </li>
+
+              @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link text-uppercase text-expanded" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+                            
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link text-uppercase text-expanded" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+         
         </ul>
       </div>
     </div>
   </nav>
 
  
-
+  <section class="page-section clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="asset/img/intro.jpg" alt="">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-upper">Ewaste Management</span>
+            <span class="section-heading-lower">Enviroment Worth Saving</span>
+          </h2>
+          <p class="mb-3">EWaste Africa prides itself in finding Innovative and award-winning processes geared towards achieving our vision of 0 waste to landfill for our clients. We have commissioned Africa’s first Lumino-Phosphor rare earth recovery plant in conjunction 
+          </p>
+          <div class="intro-button mx-auto">
+            <a class="btn btn-success btn-xl" href="{{url('searchwaste')}}">Subscribe Now!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="page-section cta">
     <div class="container">
       <div class="row">

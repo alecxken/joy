@@ -42,15 +42,50 @@
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{{url('buy-product')}}">About</a>
+
+             <li class="nav-item  px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{{url('searchwaste')}}">Subscribe
+              <span class="sr-only">(current)</span>
+            </a>
           </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{{url('buy-product')}}">Registration</a>
+
+            @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item px-lg-4">
+                                    <a class="nav-link text-uppercase text-expanded" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+                            
+                            @if (Route::has('register'))
+                                <li class="nav-item px-lg-4">
+                                    <a class="nav-link text-uppercase text-expanded" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+
+                              <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{{url('buy-product')}}">Todays Schedule</a>
           </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{{url('buy-product')}}">Todays Shedule</a>
-          </li>
+                        @else
+                            <li class="nav-item px-lg-4 dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+     
+        
 
            {{--  <li><a href="{{url('buy-prod')}}"><i class="fa fa-money"></i> <span>Buy Produce</span></a></li>
            <li><a href="{{url('grow-prod')}}"><i class="fa fa-leaf"></i> <span>Plant Produce</span></a></li>

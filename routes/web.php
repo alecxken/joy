@@ -19,6 +19,9 @@ use App\Http\Controllers\SettingsController;
 */
 
 
+
+Route::get('/searchwaste',[App\Http\Controllers\CompanyController::class,'searchwaste']);
+
 Route::post('/searchlocation',[App\Http\Controllers\CompanyController::class,'searchlocation']);
 
 Route::get('/getservice/{id}',[App\Http\Controllers\CompanyController::class,'getservice']);
