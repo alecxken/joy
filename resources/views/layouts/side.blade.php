@@ -31,16 +31,14 @@
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">HEADER</li>
           <!-- Optionally, you can add icons to the links -->
-          <li  class="{{ (request()->is('dashboard')) ? 'active' : '' }}"><a href="{{url('dashboard')}}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
+          <li  class="{{ (request()->is('home')) ? 'active' : '' }}"><a href="{{url('home')}}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
            @role('Wastemanager')
   <li><a href="{{url('create_subscribers')}}"><i class="fa fa-link"></i> <span>Active Subscribers</span></a></li>
        <li><a href="{{url('create_locations')}}"><i class="fa fa-link"></i> <span>My Settings</span></a></li>
        <li><a href="{{url('create_locations')}}"><i class="fa fa-link"></i> <span>Reports</span></a></li>
        
        @else
-           <li><a href="{{url('new-incident')}}"><i class="fa fa-link"></i> <span>New Incident</span></a></li>
-           <li><a href="{{url('my-incidents')}}"><i class="fa fa-link"></i> <span>My Incidents</span></a></li>
-          
+       
 
 
            @endrole

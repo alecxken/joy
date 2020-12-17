@@ -19,7 +19,7 @@
                                  <div class="form-group error">
                                     <label for="inputTask" class="col-sm-3 control-label">Company Name</label>
                                     <div class="col-sm-9">
-                                       <input type="text" class="form-control has-error" id="company_name" name="company_name" placeholder="Company name" >
+                                       <input type="text" class="form-control has-error" id="company_name" name="company_name" placeholder="Company name"  readonly="">
                                     </div>
                                 </div>
 

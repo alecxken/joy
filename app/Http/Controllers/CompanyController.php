@@ -73,7 +73,31 @@ class CompanyController extends Controller
        $data->status = 'Active';
        $data->save();
 
-       return back()->with('status','Registered');
+
+       $user = User::all()->where('email',$request->input('company_address'))->first();
+
+       $pass = 'Password';
+       if (!empty($user)) 
+       {
+       	$det = User::findorfail($user->id);
+       	$det->name = $request->input('company_name');
+        $det->email = $request->input('company_address');
+       
+        $det->save();
+       }
+       else
+       {
+       	$det = new User();
+       	$det->name = $request->input('company_name');
+        $det->email = $request->input('company_address');
+        $det->password = \Hash::make($pass);
+        $det->save();
+       }
+
+         $role_r = Role::where('name', '=', 'Wastemanager')->firstOrFail();
+         $det->assignRole($role_r); 
+
+       return back()->with('status','Updated');
 	}
 
 
@@ -119,11 +143,6 @@ class CompanyController extends Controller
 		$company = EwasteCompany::all()->where('company_name',Auth::user()->name)->first();
 
 		
-
-
-
-
-
 
 		if (!empty($company)) {
 			$name = $company->id;

@@ -19,6 +19,7 @@ use App\Http\Controllers\SettingsController;
 */
 
 
+Route::get('/create_subscribers',[App\Http\Controllers\CompanyController::class,'create_subscribers']);
 
 Route::get('/searchwaste',[App\Http\Controllers\CompanyController::class,'searchwaste']);
 
