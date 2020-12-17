@@ -19,7 +19,7 @@
 
   <!-- Custom styles for this template -->
   <link href="{{asset('asset/css/business-casual.min.css')}}" rel="stylesheet">
-
+    <script src="{{asset('bower_components/jquery/dist/jquery.min.js')}}"></script>
 </head>
 
 <body>

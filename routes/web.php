@@ -18,6 +18,13 @@ use App\Http\Controllers\SettingsController;
 |
 */
 
+
+Route::post('/searchlocation',[App\Http\Controllers\CompanyController::class,'searchlocation']);
+
+Route::get('/getservice/{id}',[App\Http\Controllers\CompanyController::class,'getservice']);
+
+
+
 Route::get('/search-waste',[App\Http\Controllers\CompanyController::class,'searchwaste']);
 
 Route::get('/create_locations',[App\Http\Controllers\CompanyController::class,'createlocation']);

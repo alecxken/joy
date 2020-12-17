@@ -187,6 +187,16 @@ class CompanyController extends Controller
 		return back()->with('danger','Successfully Dropped');
 	}
 
+	public function getservice($data)
+	{
+		$data = WasteSchedule::all()->where('company_id',$data);
+
+		return view('schedule',compact('data'));
+		return $data;
+
+		return back()->with('danger','Successfully Dropped');
+	}
+
 		#Create a compnay
 	public function searchwaste()
 	{
@@ -195,6 +205,30 @@ class CompanyController extends Controller
 	
 		return view('search',compact('data'));
 	}
+
+	   public function searchlocation(Request $request)
+    {
+       
+        $locations = $request->input('location');
+
+      
+
+        $data = WasteLocation::query();
+
+        if (!empty($locations))
+         {
+          $data = $data->where('location', 'like', '%'.$locations.'%');
+         }
+
+        $data = $data->get();  
+
+        if (empty($data)) {
+        	return back()->with('danger','Not Found');
+        }
+
+
+        return view('search',compact('data'));
+    }
 
 
 }
