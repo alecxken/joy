@@ -62,7 +62,18 @@
   </nav>
 
   <section class="page-section clearfix">
-    @yield('content')
+        <section class="page-section cta" style=" background-image: linear-gradient(to right,#FFF,#1CA340);">
+    <div class="row">
+          <div class="col-md-12 mx-auto">
+            <div class="cta-inner text-center rounded">
+             @yield('content')
+           </div>
+         </div>
+       </div>
+
+
+</section>
+
   </section>
 
 
