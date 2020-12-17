@@ -53,8 +53,7 @@
         <div class="box-footer">
           <button type="submit" style="border-radius: 15px" class="btn btn-success btn-block btn-flat">Sign In</button>
 
-          <a href="{{url('register')}}" style="border-radius: 15px" class="btn btn-primary btn-block btn-flat">Click To Register</a>
-        
+      
         </div>
         <!-- /.col -->
    

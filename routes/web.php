@@ -24,6 +24,7 @@ Route::get('/getmysub',[App\Http\Controllers\CompanyController::class,'get_subsc
 
 Route::get('/getservice/getsubscriber/{id}',[App\Http\Controllers\CompanyController::class,'getsubscriber']);
 
+Route::post('/report-mttr',[App\Http\Controllers\CompanyController::class,'storesubscriber']);
 
 Route::post('/save_subscriber',[App\Http\Controllers\CompanyController::class,'storesubscriber']);
 

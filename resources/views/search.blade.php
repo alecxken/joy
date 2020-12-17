@@ -1,28 +1,19 @@
-@extends('layouts.template')
+@extends('layouts.master')
 
 @section('content')
 
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card">
-                   @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                       @if (session('danger'))
-                        <div class="alert alert-danger" role="alert">
-                            {{ session('danger') }}
-                        </div>
-                    @endif
-                <div class="bg-success card-header">
+            <div class="box">
+      
+                <div class="bg-success box-header">
                  
  {!! Form::open(['method'=> 'post','url' => 'searchlocation' ,'files' => true]) !!}
            <div class="row">
                   <div class="form-group col-md-8 ">
                     {!! Form::label('C_Name', 'Select Your Nearest Location', ['class' => 'col-form-label '])!!}
-                   <select class="form-control" name="location" required="">
-                       <option>Registered Location</option>
+                   <select class="form-control select2" name="location" required="">
+                       <option value="">Registered Location</option>
            
                     @if(!empty(\App\Models\WasteLocation::all()->groupBy('location')))
 
@@ -45,7 +36,7 @@
            {!!Form::close()!!}
                 </div>
 
-                <div class="card-body">
+                <div class="box-body">
                  
 @if(!empty($data))
                           <div class="col-md-12 justify-content-center">  
@@ -63,16 +54,18 @@
            <tbody> 
 
            @foreach ($data as $users)
+          
               <tr>
                   <td>{{$users->company_id}}</td>
                   <td>{{$users->location}}</td>
                 <td> 
-              {{--     <button class="btn btn-xs btn-success  open-modal" value="{{$users->id}}">Action</button> --}}             
+                   
             <a href="{{url('getservice/'.$users->company_id)}}" class="btn btn-danger btn-xs">Subscribe</a>
                 </td>
             
               
               </tr>
+            
           @endforeach
          
           </tbody>

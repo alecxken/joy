@@ -16,7 +16,7 @@
           <table id="example1" class="table table-bordered table-striped">
           <thead>
              <tr class="bg-success">  
-               <th>Company Name</th>
+               <th>User Name</th>
                <th>Day Of Pick-up</th>
                <th>Pickup Location</th>
                <th>Address</th>
@@ -28,7 +28,8 @@
            @foreach ($data as $users)
               <tr>
 
-                  <td>{{$users->company_id}}</td>
+                @php $name =\App\Models\User::all()->where('id',$users->user_id)->first(); @endphp
+                  <td>@if(!empty($name)){{$name->name}} @else <label class="label label-danger">User Deleted</label> @endif</td>
                   <td>{{$users->day}}</td>
                   <td>{{$users->location}}</td>
                   <td>{{$users->desc}}</td>

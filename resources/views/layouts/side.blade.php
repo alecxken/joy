@@ -32,6 +32,8 @@
           <li class="header">HEADER</li>
           <!-- Optionally, you can add icons to the links -->
           <li  class="{{ (request()->is('home')) ? 'active' : '' }}"><a href="{{url('home')}}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
+
+          <li><a href="{{url('getmysub')}}"><i class="fa fa-link"></i> <span>My Subscriptions</span></a></li>
            @role('Wastemanager')
   <li><a href="{{url('create_subscribers')}}"><i class="fa fa-link"></i> <span>Active Subscribers</span></a></li>
        <li><a href="{{url('create_locations')}}"><i class="fa fa-link"></i> <span>My Settings</span></a></li>

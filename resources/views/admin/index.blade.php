@@ -8,8 +8,8 @@
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs pull-right">
               <li class=""><a href="#tab_1-1" data-toggle="tab" aria-expanded="false">Users</a></li>
-              <li class=""><a href="#tab_2-2" data-toggle="tab" aria-expanded="false">Roles</a></li>
-              <li class="active"><a href="#tab_3-2" data-toggle="tab" aria-expanded="true">Permissions</a></li>
+              <li class=""><a href="#tab_2-2" data-toggle="tab" aria-expanded="false">Tap</a></li>
+              <li class="active"><a href="#tab_3-2" data-toggle="tab" aria-expanded="true">y</a></li>
            
               <li class="pull-left header"><i class="fa fa-th"></i> Custom Tabs</li>
             </ul>
@@ -34,7 +34,8 @@
                 <span class="section-heading-lower">
                   <a href="{{ url('roles_index') }}" class="btn btn-default pull-right">Roles</a>
           <a href="{{ url('permissions_index') }}" class="btn btn-default pull-right">Permissions</a>
-        <a href="{{ url('users_create') }}" class="btn btn-success">Add User</a></span>
+       {{--  <a href="{{ url('users_create') }}" class="btn btn-success">Add User</a> --}}
+      </span>
               </b>
 
                 <p>    <div class="table-responsive">
