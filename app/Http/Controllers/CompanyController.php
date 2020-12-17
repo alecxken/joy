@@ -14,6 +14,8 @@ use App\Models\WasteLocation;
 
 use App\Models\WasteSchedule;
 
+use App\Models\WasteSubscriber;
+
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
@@ -178,6 +180,29 @@ class CompanyController extends Controller
 
        return back()->with('status','Registered Successfully');
 	}
+
+		#update Company
+	public function storesubscriber($id)
+	{
+	   $schedule = WasteSchedule::all()->where('id',$id)->first();
+
+	   $data = new WasteSubscriber();
+       $data->user_id = Auth::id();
+       $data->company_id = $schedule->company_id;
+       $data->day = $schedule->day;
+       $data->location = $schedule->location;
+       $data->date = $schedule->date;
+       $data->description = 'ok';
+       $data->save();
+
+       return redirect('home')->with('status','Registered Successfully');
+	}
+
+
+
+
+
+
 
 	public function dropschedule($data)
 	{

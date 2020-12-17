@@ -23,6 +23,7 @@ Route::post('/searchlocation',[App\Http\Controllers\CompanyController::class,'se
 
 Route::get('/getservice/{id}',[App\Http\Controllers\CompanyController::class,'getservice']);
 
+Route::get('/storesubscriber/{id}',[App\Http\Controllers\CompanyController::class,'storesubscriber']);
 
 
 Route::get('/search-waste',[App\Http\Controllers\CompanyController::class,'searchwaste']);
@@ -130,6 +131,8 @@ Route::post('/user_show/{id}', [App\Http\Controllers\UserController::class, 'sho
 Route::get('/permissions_index',[PermissionController::class ,'index']);
 
 Route::get('/permission_create',[PermissionController::class ,'create']);
+
+Route::get('/permissions_create',[PermissionController::class ,'create']);
 
 Route::post('/permissions_store',[PermissionController::class ,'store']);
 

@@ -18,7 +18,7 @@
                         @foreach($data as $user)
 
                         @if($user->day == 'Sunday')
-                         <span class="ml-auto">{{$user->location}} @ {{$user->date}}  <a href="">act</a></span>
+                         <span class="ml-auto">{{$user->location}} @ {{$user->date}}  <a href="{{url('storesubscriber/'.$user->id)}}">act</a></span>
                          @endif
 
                         @endforeach
@@ -32,41 +32,91 @@
                    @if(!empty($data))
                         @foreach($data as $user)
 
-                        @if($user->day == 'Sunday')
-                         <span class="ml-auto">{{$user->location}} @ {{$user->date}}  <a href="">act</a></span>
+                        @if($user->day == 'Monday')
+                         <span class="ml-auto">{{$user->location}} @ {{$user->date}}  <a href="{{url('storesubscriber/'.$user->id)}}" class="btn btn-success btn-xs">select</a></span>
                          @endif
 
                         @endforeach
                     @else
-                    <span class="ml-auto">Closed</span>
+                    <span class="ml-auto">Not Visible</span>
                   @endif
                 </li>
                 <li class="list-unstyled-item list-hours-item d-flex">
                   Tuesday
-                  <span class="ml-auto">7:00 AM to 8:00 PM</span>
+                  @if(!empty($data))
+                        @foreach($data as $user)
+
+                        @if($user->day == 'Tuesday')
+                         <span class="ml-auto">{{$user->location}} @ {{$user->date}}  <a href="{{url('storesubscriber/'.$user->id)}}" class="btn btn-success btn-xs">select</a></span>
+                         @endif
+
+                        @endforeach
+                    @else
+                    <span class="ml-auto">Not Visible</span>
+                  @endif
                 </li>
                 <li class="list-unstyled-item list-hours-item d-flex">
                   Wednesday
-                  <span class="ml-auto">7:00 AM to 8:00 PM</span>
+                  @if(!empty($data))
+                        @foreach($data as $user)
+
+                        @if($user->day == 'Wednesday')
+                         <span class="ml-auto">{{$user->location}} @ {{$user->date}}  <a href="{{url('storesubscriber/'.$user->id)}}" class="btn btn-success btn-xs">select</a></span>
+                         @endif
+
+                        @endforeach
+                    @else
+                    <span class="ml-auto">Not Visible</span>
+                  @endif
                 </li>
                 <li class="list-unstyled-item list-hours-item d-flex">
                   Thursday
-                  <span class="ml-auto">7:00 AM to 8:00 PM</span>
+                  @if(!empty($data))
+                        @foreach($data as $user)
+
+                        @if($user->day == 'Thursday')
+                         <span class="ml-auto">{{$user->location}} @ {{$user->date}}  <a href="{{url('storesubscriber/'.$user->id)}}" class="btn btn-success btn-xs">select</a></span>
+                         @endif
+
+                        @endforeach
+                    @else
+                    <span class="ml-auto">Not Visible</span>
+                  @endif
                 </li>
                 <li class="list-unstyled-item list-hours-item d-flex">
                   Friday
-                  <span class="ml-auto">7:00 AM to 8:00 PM</span>
+                  @if(!empty($data))
+                        @foreach($data as $user)
+
+                        @if($user->day == 'Friday')
+                         <span class="ml-auto">{{$user->location}} @ {{$user->date}}  <a href="{{url('storesubscriber/'.$user->id)}}" class="btn btn-success btn-xs">select</a></span>
+                         @endif
+
+                        @endforeach
+                    @else
+                    <span class="ml-auto">Not Visible</span>
+                  @endif
                 </li>
                 <li class="list-unstyled-item list-hours-item d-flex">
                   Saturday
-                  <span class="ml-auto">9:00 AM to 5:00 PM</span>
+                   @if(!empty($data))
+                        @foreach($data as $user)
+
+                        @if($user->day == 'Saturday')
+                         <span class="ml-auto">{{$user->location}} @ {{$user->date}}  <a href="{{url('storesubscriber/'.$user->id)}}" class="btn btn-success btn-xs">select</a></span>
+                         @endif
+
+                        @endforeach
+                    @else
+                    <span class="ml-auto">Not Visible</span>
+                  @endif
                 </li>
               </ul>
               <p class="address mb-5">
                 <em>
-                  <strong>1116 Orchard Street</strong>
+                  <strong>E WASTE kENYA</strong>
                   <br>
-                  Golden Valley, Minnesota
+                  Nairobi, Kenya
                 </em>
               </p>
               <p class="mb-0">
@@ -74,7 +124,7 @@
                   <em>Call Anytime</em>
                 </small>
                 <br>
-                (317) 585-8468
+                (254) 585-8468
               </p>
             </div>
         
