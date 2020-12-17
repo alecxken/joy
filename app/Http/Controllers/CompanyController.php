@@ -175,8 +175,9 @@ public function create_subscribers()
 	public function get_subscriber()
 	{
 		$data = WasteSubscriber::all()->where('user_id',\Auth::user()->id);
+
 		
-		if (!empty($data)) {
+		if (empty($data)) {
 			return back()->with('danger','No Active Subscriptions');
 		}
 
@@ -241,7 +242,7 @@ public function create_subscribers()
 	   $schedule = WasteSchedule::all()->where('id',$id)->first();
 
 	   $data = new WasteSubscriber();
-       $data->user_id = Auth::id();
+       $data->user_id = Auth::user()->id;
        $data->company_id = $schedule->company_id;
        $data->day = $schedule->day;
        $data->location = $schedule->location;

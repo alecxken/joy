@@ -21,7 +21,7 @@
             </tr>
           </thead>
            <tbody> @if(!empty($data))
-           @foreach ($data as $users)
+           @foreach ($data as $key => $users)
               <tr>
 
                   <td>{{$users->company_id}}</td>
