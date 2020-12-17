@@ -1,6 +1,19 @@
 @extends('layouts.master')
 
 @section('content')
+
+<?php
+$reports = \App\Models\EWasteCompany::all()->count();
+
+$new = \App\Models\User::all()->count();
+
+              // return $num;
+     $users = \App\Models\WasteSubscriber::all()->where('company_id',\Auth::user()->name)->count();
+
+          $datas = \App\Models\WasteLocation::all()->where('company_id',\Auth::user()->name)->count();
+            
+
+?>
 <div class="container-fluid">
     @role('Admin')
     <div class="row">
@@ -8,13 +21,14 @@
                   <!-- small box -->
                   <div class="small-box bg-green" style="border-radius: 24px;">
                     <div class="inner">
-                      <h4>Welcome</h4>
-                      <p> {{\Auth::user()->name}}</p>
+                      <h3>@if(!empty($reports)) {{$reports}} @endif</h3>
+
+                      <p>Active Partners</p>
                     </div>
                     <div class="icon">
-                      <i class="fa fa-user"></i>
+                      <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="#" class="contentviewrepo small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                   </div>
                 </div>
                 <!-- ./col -->
@@ -22,7 +36,7 @@
                   <!-- small box -->
                   <div class="small-box bg-blue" style="border-radius: 24px;">
                    <div class="inner">
-                      <h3>0</h3>
+                      <h3>@if(!empty($new)) {{$new}} @endif</h3>
 
                       <p>Active Partners</p>
                     </div>
@@ -39,7 +53,7 @@
                     <div class="inner">
                       <h3>0</h3>
 
-                      <p>Your Reports</p>
+                      <p>Registered  Points</p>
                     </div>
                     <div class="icon">
                       <i class="ion ion-stats-bars"></i>
@@ -73,7 +87,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Active Subscribers</span>
-              <span class="info-box-number">2<small>%</small></span>
+              <span class="info-box-number">@if(!empty($users)) {{$users}} @endif<small></small></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -86,7 +100,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Registered Locations</span>
-              <span class="info-box-number">4</span>
+              <span class="info-box-number">@if(!empty($datas)) {{$datas}} @endif</span>
             </div>
             <!-- /.info-box-content -->
           </div>

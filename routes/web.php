@@ -19,6 +19,14 @@ use App\Http\Controllers\SettingsController;
 */
 
 
+
+Route::get('/getservice/getsubscriber/{id}',[App\Http\Controllers\CompanyController::class,'getsubscriber']);
+
+
+Route::post('/save_subscriber',[App\Http\Controllers\CompanyController::class,'storesubscriber']);
+
+Route::get('/getsubscriber/{id}',[App\Http\Controllers\CompanyController::class,'getsubscriber']);
+
 Route::get('/create_subscribers',[App\Http\Controllers\CompanyController::class,'create_subscribers']);
 
 Route::get('/searchwaste',[App\Http\Controllers\CompanyController::class,'searchwaste']);

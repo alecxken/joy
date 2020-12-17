@@ -161,6 +161,18 @@ class CompanyController extends Controller
 	}
 
 
+public function create_subscribers()
+	{
+		$data = WasteSubscriber::all()->where('company_id',\Auth::user()->name);
+		$data = WasteSubscriber::all()->where('company_id',\Auth::user()->name);
+
+
+
+	
+		return view('activeuser',compact('data'));
+	}
+
+
 	#Create a compnay
 	public function createschedule()
 	{
@@ -201,8 +213,19 @@ class CompanyController extends Controller
 	}
 
 		#update Company
-	public function storesubscriber($id)
+
+		public function getsubscriber($id)
 	{
+	   $data = WasteSchedule::all()->where('id',$id)->first();
+
+	   return $data;
+	}
+
+
+	public function storesubscriber(Request $request)
+	{
+		$id = $request->input('sub_id');
+		$name =  'Estate: ' .$request->input('estate').', House Number :'. $request->input('house').', Street: '. $request->input('street');
 	   $schedule = WasteSchedule::all()->where('id',$id)->first();
 
 	   $data = new WasteSubscriber();
@@ -212,7 +235,11 @@ class CompanyController extends Controller
        $data->location = $schedule->location;
        $data->date = $schedule->date;
        $data->description = 'ok';
+       $data->desc = $name;
+
        $data->save();
+
+
 
        return redirect('home')->with('status','Registered Successfully');
 	}

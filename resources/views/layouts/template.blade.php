@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>We Dare</title>
+  <title>ECOWASTE</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{{asset('asset/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
